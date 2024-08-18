@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Modal } from '../components';
 
-export function NewTransactionModal() {
+export function WalletDetailModal() {
   const navigate = useNavigate()
 
   const handleClose = () => {
@@ -11,7 +11,7 @@ export function NewTransactionModal() {
 
   return (
     <Modal onClose={handleClose}>
-      <h2 className="text-xl font-bold mb-4">New Transaction</h2>
+      <h2 className="text-xl font-bold mb-4">Wallet detail</h2>
       <div>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero corporis
         quidem est itaque distinctio sequi cumque accusantium officiis nostrum,

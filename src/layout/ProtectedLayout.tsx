@@ -3,13 +3,8 @@ import { Navigate, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks';
 
 export function ProtectedLayout() {
-  const { user, logout, loading } = useAuth()
+  const { user, loading } = useAuth()
   const navigate = useNavigate()
-
-  const handleLogout = () => {
-    logout()
-    navigate('/login')
-  }
 
   if (loading) {
     return <div>Loading...</div>
@@ -19,20 +14,19 @@ export function ProtectedLayout() {
     return <Navigate to="/login" />
   }
 
+  const handleDetailWallet = () => navigate('/app/setting/detail')
+
   return (
     <div className="flex flex-col h-screen">
       {/* Menubar */}
       <header className="bg-blue-500 text-white p-4 flex justify-between items-center">
         <div>{new Date().toLocaleString('en-US', { timeZone: 'UTC' })} UTC</div>
-        <div>
-          Welcome, {user}!
-          <button
-            onClick={handleLogout}
-            className="ml-2 bg-red-500 px-2 py-1 rounded"
-          >
-            Logout
-          </button>
-        </div>
+        <button
+          onClick={handleDetailWallet}
+          className="ml-2 bg-red-500 px-2 py-1 rounded"
+        >
+          Wallet
+        </button>
       </header>
 
       {/* Main content */}

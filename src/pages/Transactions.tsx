@@ -1,19 +1,11 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 
-import { TransactionContextType } from '../types';
-
 export function Transactions() {
   const navigate = useNavigate()
-
-  const closeModal = () => {
-    navigate('/app/transactions')
-  }
 
   const openNewTransactionModal = () => {
     navigate('/app/transactions/new')
   }
-
-  const contextValue: TransactionContextType = { closeModal }
 
   return (
     <div>
@@ -24,8 +16,8 @@ export function Transactions() {
       >
         New Transaction
       </button>
-      {/* Add your transactions list here */}
-      <Outlet context={contextValue} />
+
+      <Outlet />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from './App';
 import { AuthenLayout, ProtectedLayout } from './layout';
 import { Assets, Login, NewTransactionModal, Setting, Transactions } from './pages';
+import { WalletDetailModal } from './pages/WalletDetailModal';
 
 export const router = createBrowserRouter([
   {
@@ -29,12 +30,14 @@ export const router = createBrowserRouter([
         element: <ProtectedLayout />,
         children: [
           { path: 'assets', element: <Assets /> },
+
+          // setting
+          { path: 'setting/detail', element: <WalletDetailModal /> },
           { path: 'setting', element: <Setting /> },
-          {
-            path: 'transactions',
-            element: <Transactions />,
-            children: [{ path: 'new', element: <NewTransactionModal /> }],
-          },
+
+          // transactions
+          { path: 'transactions/new', element: <NewTransactionModal /> },
+          { path: 'transactions', element: <Transactions /> },
           { path: '', element: <Navigate to="/app/assets" replace /> },
           { path: '*', element: <Navigate to="/app/assets" replace /> },
         ],
