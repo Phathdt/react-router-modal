@@ -9,11 +9,22 @@ export function Transactions() {
     navigate('/transactions')
   }
 
+  const openNewTransactionModal = () => {
+    navigate('/transactions/new')
+  }
+
   const contextValue: TransactionContextType = { closeModal }
 
   return (
     <div>
-      <h1>Transaction Page</h1>
+      <h1 className="text-2xl font-bold mb-4">Transactions</h1>
+      <button
+        onClick={openNewTransactionModal}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        New Transaction
+      </button>
+      {/* Add your transactions list here */}
       <Outlet context={contextValue} />
     </div>
   )

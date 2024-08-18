@@ -1,3 +1,5 @@
 export * from './Assets'
 export * from './Transactions'
+export * from './Setting'
 export * from './NewTransactionModal'
+export * from './Login'
