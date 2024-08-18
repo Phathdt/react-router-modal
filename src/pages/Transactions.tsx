@@ -6,11 +6,11 @@ export function Transactions() {
   const navigate = useNavigate()
 
   const closeModal = () => {
-    navigate('/transactions')
+    navigate('/app/transactions')
   }
 
   const openNewTransactionModal = () => {
-    navigate('/transactions/new')
+    navigate('/app/transactions/new')
   }
 
   const contextValue: TransactionContextType = { closeModal }
